@@ -1,0 +1,52 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.techlearner.bowfun'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.techlearner.bowfun"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    signingConfigs {
+        release {
+            storeFile     file("../../keystores/techlearner-release.jks")
+            storePassword "TechLearner@2024"
+            keyAlias      "techlearner"
+            keyPassword   "TechLearner@2024"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled   false
+            signingConfig   signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            applicationIdSuffix ".debug"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    bundle {
+        language { enableSplit = true }
+        density  { enableSplit = true }
+        abi      { enableSplit = true }
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.core:core:1.12.0'
+}

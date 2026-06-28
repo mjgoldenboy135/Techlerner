@@ -1,0 +1,3 @@
+-keep class com.techlearner.bowfun.** { *; }
+-keep class androidx.webkit.** { *; }
+-keepclassmembers class * extends android.webkit.WebViewClient { *; }

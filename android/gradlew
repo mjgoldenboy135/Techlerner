@@ -1,0 +1,5 @@
+#!/bin/sh
+# Gradle wrapper startup script for UNIX
+APP_HOME=$(dirname "$0")
+exec "${APP_HOME}/gradle/wrapper/gradle-wrapper.jar" "$@" 2>/dev/null || \
+  gradle -p "${APP_HOME}" "$@"
